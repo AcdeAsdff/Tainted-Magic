@@ -1,12 +1,22 @@
 package taintedmagic.common.items.wand.foci;
 
+import lotr.common.LOTRDimension;
+import lotr.common.LOTRLevelData;
+import lotr.common.world.LOTRWorldProvider;
+import lotr.common.world.LOTRWorldTypeMiddleEarth;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.multiplayer.WorldClient;
 import net.minecraft.client.renderer.texture.IIconRegister;
+import net.minecraft.command.CommandWeather;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.ItemStack;
+import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.IIcon;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
+import net.minecraft.world.WorldServer;
+import net.minecraft.world.storage.WorldInfo;
 import taintedmagic.common.TaintedMagic;
 import thaumcraft.api.aspects.Aspect;
 import thaumcraft.api.aspects.AspectList;
@@ -16,6 +26,8 @@ import thaumcraft.client.fx.particles.FXWisp;
 import thaumcraft.common.items.wands.ItemWandCasting;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+
+import static taintedmagic.ModChecker.hasLOTR;
 
 public class ItemFocusMeteorology extends ItemFocusBasic
 {
@@ -92,18 +104,33 @@ public class ItemFocusMeteorology extends ItemFocusBasic
 		return ItemFocusBasic.WandFocusAnimation.WAVE;
 	}
 
-	public ItemStack onFocusRightClick (ItemStack s, World w, EntityPlayer p, MovingObjectPosition mop)
+	public static void switchWorldRaining(World world){
+		WorldInfo worldinfo = world.getWorldInfo();
+		boolean worldRainingFlag = worldinfo.isRaining();
+		worldinfo.setRainTime(worldRainingFlag ? 24000 : 0);
+		worldinfo.setRaining(!worldRainingFlag);
+	}
+
+	@Override
+	public ItemStack onFocusRightClick(ItemStack s, World w, EntityPlayer p, MovingObjectPosition mop)
 	{
 		ItemWandCasting wand = (ItemWandCasting) s.getItem();
 
 		if (wand.consumeAllVis(s, p, getVisCost(s), true, false))
 		{
-			w.getWorldInfo().setRainTime(w.isRaining() ? 24000 : 0);
-			w.getWorldInfo().setRaining(!w.isRaining());
+//			System.out.println("tm_weather_core:"+w + w.provider.dimensionId);//so both client and server world will perform these all.
+			switchWorldRaining(w);
 			p.playSound("thaumcraft:runicShieldCharge", 0.3F, 1.0F + w.rand.nextFloat() * 0.5F);
 			p.playSound("thaumcraft:wand", 0.3F, 1.0F + w.rand.nextFloat() * 0.5F);
 
-			if (w.isRemote) spawnParticles(w, p);
+			if (w.isRemote) {
+				if (hasLOTR() && w.provider.dimensionId == LOTRDimension.MIDDLE_EARTH.dimensionID){
+					switchWorldRaining(MinecraftServer.getServer().worldServers[0]);
+				}
+				spawnParticles(w, p);
+			}
+
+
 		}
 		return s;
 	}

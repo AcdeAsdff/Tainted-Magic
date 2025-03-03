@@ -2,14 +2,19 @@ package taintedmagic.common.items.wand.foci;
 
 import java.awt.Color;
 
+import lotr.common.LOTRDimension;
+import lotr.common.LOTRTime;
+import lotr.common.world.LOTRWorldProvider;
 import net.minecraft.client.particle.EntityFX;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.ItemStack;
+import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.IIcon;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
+import net.minecraft.world.WorldServer;
 import taintedmagic.common.TaintedMagic;
 import taintedmagic.common.helper.TaintedMagicHelper;
 import thaumcraft.api.aspects.Aspect;
@@ -22,6 +27,8 @@ import thaumcraft.common.items.wands.ItemWandCasting;
 import cpw.mods.fml.relauncher.ReflectionHelper;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+
+import static taintedmagic.ModChecker.hasLOTR;
 
 public class ItemFocusTime extends ItemFocusBasic
 {
@@ -118,11 +125,20 @@ public class ItemFocusTime extends ItemFocusBasic
 
         if (wand.consumeAllVis(s, p, getVisCost(s), true, false))
         {
-            w.setWorldTime(w.isDaytime() ? 14000 : 24000);
+
+
+            if (hasLOTR() && w.provider.dimensionId == LOTRDimension.MIDDLE_EARTH.dimensionID && w.isRemote){
+                long l = LOTRTime.worldTime + (LOTRTime.DAY_LENGTH/2);
+                LOTRTime.worldTime = l - l % (LOTRTime.DAY_LENGTH/2);
+            } else {
+                w.setWorldTime(w.isDaytime() ? 14000 : 24000);
+            }
             p.playSound("thaumcraft:runicShieldCharge", 0.3F, 1.0F + w.rand.nextFloat() * 0.5F);
             p.playSound("thaumcraft:wand", 0.3F, 1.0F + w.rand.nextFloat() * 0.5F);
 
-            if (w.isRemote) spawnParticles(w, p);
+            if (w.isRemote) {
+                spawnParticles(w, p);
+            }
         }
         return s;
     }
