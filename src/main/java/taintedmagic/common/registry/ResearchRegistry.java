@@ -162,10 +162,43 @@ public class ResearchRegistry {
         r.setPages(new ResearchPage("1"), infusionPage("ItemSalis:0"));
         r.setConcealed().setParents("CREATION").setSecondary().registerResearchItem();
 
-        r = new TMResearchItem("TIMESALT", new AspectList().add(TaintedMagicHelper.getPrimals(4)).add(Aspect.EXCHANGE, 4), 13,
-                -6, new ItemStack(ItemRegistry.ItemSalis, 1, 1), 0, 0);
+        r = new TMResearchItem("TIMESALT",
+                new AspectList().add(TaintedMagicHelper.getPrimals(4)).add(Aspect.EXCHANGE, 4),
+                13,-6,
+                new ItemStack(ItemRegistry.ItemSalis, 1, 1)
+                , 0, 0);
         r.setPages(new ResearchPage("1"), infusionPage("ItemSalis:1"));
         r.setConcealed().setParents("CREATION").setSecondary().registerResearchItem();
+
+        new TMResearchItem("FOCUSTIME",
+                new AspectList().add(Aspect.FIRE, 4)
+                        .add(Aspect.WATER, 8)
+                        .add(Aspect.EARTH, 4)
+                        .add(Aspect.AIR, 4)
+                        .add(Aspect.ORDER, 4)
+                        .add(Aspect.ENTROPY, 4)
+                        .add(Aspect.EXCHANGE, 4),
+                14, -6,
+                new ItemStack(ItemRegistry.ItemFocusTime),
+                0,0).setPages(new ResearchPage[]{ new ResearchPage("1"),
+                new ResearchPage((InfusionRecipe) recipes.get("ItemFocusTime")) }).setSecondary()
+                .setConcealed().setParents("CREATION").setParentsHidden("FOCUSPORTABLEHOLE", "FOCUSFIRE")
+                .setComplexity(3).registerResearchItem();
+        new TMResearchItem("FOCUSWEATHER",
+                new AspectList()
+                        .add(Aspect.FIRE, 4)
+                        .add(Aspect.WATER, 8)
+                        .add(Aspect.EARTH, 4)
+                        .add(Aspect.AIR, 4)
+                        .add(Aspect.ORDER, 4)
+                        .add(Aspect.ENTROPY, 4)
+                        .add(Aspect.WEATHER, 4),
+                14, -7,
+                new ItemStack(ItemRegistry.ItemFocusMeteorology),
+                0,0).setPages(new ResearchPage[]{ new ResearchPage("1"),
+                        new ResearchPage((InfusionRecipe) recipes.get("ItemFocusMeteorology")) }).setSecondary()
+                .setConcealed().setParents("CREATION").setParentsHidden("FOCUSFROST", "FOCUSSHOCK")
+                .setComplexity(3).registerResearchItem();
 
         r = new TMResearchItem("THAUMICDISASSEMBLER",
                 new AspectList().add(Aspect.METAL, 4).add(Aspect.WEAPON, 8).add(Aspect.TOOL, 4), 6, -9,

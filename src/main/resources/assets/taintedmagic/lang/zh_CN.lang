@@ -22,6 +22,8 @@ item.ItemFocusTaintSwarm.name=法杖核心:腐化孢子之灾
 item.ItemFocusDarkMatter.name=法杖核心:暗影物质
 item.ItemFocusVisShard.name=法杖核心:魔力碎片
 item.ItemFocusLumos.name=法杖核心:荧光闪烁
+item.ItemFocusMeteorology.name=法杖核心：天气
+item.ItemFocusTime.name=法杖核心：时间
 
 item.Focus.cost3=Vis/每次攻击
 
@@ -261,6 +263,19 @@ tm.text.CREATION.6=亿万年后,也就是你如今的时代;你已经是一个�
 tm.name.THAUMICDISASSEMBLER=神秘分解杵
 tm.tag.THAUMICDISASSEMBLER=当魔法碰上科技
 tm.text.THAUMICDISASSEMBLER.1=你创造了一种有很高技术含量的魔法组合工具,你将其称之为神秘分解杵.它能够轻松地破坏所有种类的方块,可以像锄头一样耕地,也是一把趁手的武器;可以让使用者避免一直切换各种各样的工具.拿着这个工具并按下Shift(潜行)+Right-click(右键)可以切换效率模式.<BR>分解杵必须充满熵能才能使用.它可以自动从法杖或带有魔力的饰品里汲取它所需的魔力.
+
+#FOCUSTIME
+
+tm.name.FOCUSTIME=法杖核心:时间
+tm.tag.FOCUSTIME=一次次在悲痛中逝去，这在曾经几乎是必然。
+tm.text.FOCUSTIME.1=利用创世的基本原理，你创造了一个可以对世界进行修正的法杖核心。<BR>时间的核心十分简单。创世碎片可以调动创世法则，你可以让世界因你而进行昼夜更替。<BR>这种核心使用了创世魔法，这意味着它有冷却时间——长达30秒。<BR>这种核心无法在核心镶饰台升级。
+
+#FOCUSWEATHER
+
+tm.name.FOCUSWEATHER=法杖核心:天气
+tm.tag.FOCUSWEATHER=一段祷文从她的嘴角传出。
+tm.text.FOCUSWEATHER.1=利用创世之法的基本原理，制造掌控天气的核心并非难事。<BR>在暴雨中，它可以驱散乌云；在晴日里，它能招来风雷。这个核心将停止/开启雨水。<BR>这种核心使用了创世魔法，这意味着它有冷却时间——长达30秒。<BR>这种核心无法在核心镶饰台升级
+
 
 #SKYSALT
 tm.name.SKYSALT=风暴轮转之盐

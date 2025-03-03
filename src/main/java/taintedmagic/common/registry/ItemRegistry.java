@@ -38,12 +38,7 @@ import taintedmagic.common.items.tools.ItemShadowmetalSword;
 import taintedmagic.common.items.tools.ItemThaumicDisassembler;
 import taintedmagic.common.items.wand.ItemWandCap;
 import taintedmagic.common.items.wand.ItemWandRod;
-import taintedmagic.common.items.wand.foci.ItemFocusDarkMatter;
-import taintedmagic.common.items.wand.foci.ItemFocusLumos;
-import taintedmagic.common.items.wand.foci.ItemFocusMageMace;
-import taintedmagic.common.items.wand.foci.ItemFocusShockwave;
-import taintedmagic.common.items.wand.foci.ItemFocusTaintSwarm;
-import taintedmagic.common.items.wand.foci.ItemFocusVisShard;
+import taintedmagic.common.items.wand.foci.*;
 import thaumcraft.api.ThaumcraftApi;
 import thaumcraft.api.wands.StaffRod;
 import thaumcraft.api.wands.WandCap;
@@ -81,6 +76,8 @@ public class ItemRegistry {
     public static Item ItemFocusShockwave;
     public static Item ItemFocusVisShard;
     public static Item ItemFocusLumos;
+    public static Item ItemFocusMeteorology;
+    public static Item ItemFocusTime;
 
     // Armor and Baubles
     public static Item ItemWarpedGoggles;
@@ -113,7 +110,9 @@ public class ItemRegistry {
 
     public static Item ItemKatana;
 
+
     public static void initItems () {
+
         ItemMaterial = new ItemMaterial();
         GameRegistry.registerItem(ItemMaterial, "ItemMaterial");
 
@@ -228,6 +227,12 @@ public class ItemRegistry {
 
         ItemFocusLumos = new ItemFocusLumos();
         GameRegistry.registerItem(ItemFocusLumos, "ItemFocusLumos");
+
+        ItemFocusMeteorology = new ItemFocusMeteorology();
+        GameRegistry.registerItem(ItemFocusMeteorology, "ItemFocusMeteorology");
+
+        ItemFocusTime = new ItemFocusTime();
+        GameRegistry.registerItem(ItemFocusTime, "ItemFocusTime");
 
         // Tools
         ItemThaumicDisassembler = new ItemThaumicDisassembler();

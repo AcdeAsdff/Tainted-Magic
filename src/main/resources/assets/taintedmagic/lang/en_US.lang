@@ -22,6 +22,8 @@ item.ItemFocusTaintSwarm.name=Wand Focus: Taint Swarm
 item.ItemFocusDarkMatter.name=Wand Focus: Dark Matter
 item.ItemFocusVisShard.name=Wand Focus: Vis Shard
 item.ItemFocusLumos.name=Wand Focus: Lumos
+item.ItemFocusMeteorology.name=Wand Focus: Meteorology
+item.ItemFocusTime.name=Wand Focus: Time
 
 item.Focus.cost3=Vis per hit
 
@@ -259,6 +261,19 @@ tm.text.CREATION.6=Eons later, here you stand; one who has marched into eternity
 tm.name.THAUMICDISASSEMBLER=Thaumic Disassembler
 tm.tag.THAUMICDISASSEMBLER=Magic meets tech
 tm.text.THAUMICDISASSEMBLER.1=You have constructed a high-tech magical multitool which you have named the Thaumic Disassembler. It easily breaks all block types, can create farmland, and is a decent weapon as well, allowing the user to avoid constantly swapping between tools. One would Shift+Right-click with the tool in hand to cycle between efficiency modes.<BR>The Disassembler must be charged with entropy vis to be usable. It will automatically charge using vis from wands, staves, or baubles in the user's inventory.
+
+#FOCUSTIME
+
+tm.name.FOCUSTIME=Wand Focus: Time
+tm.tag.FOCUSTIME=That once a certainty, lost in grief
+tm.text.FOCUSTIME.1=Using the basic principals of creation, you have created a focus to modify the world slightly.<BR>The Time focus is simple. Using the Shard of Creation to tap into the world's creational formula, you are able to shift the time from night to day and vice versa.<BR>The only problem is the immensely long cooldown time of 30 seconds.<BR>This focus will not accept upgrades from the Focal Manipulator.
+
+#FOCUSWEATHER
+
+tm.name.FOCUSWEATHER=Wand Focus: Meteorology
+tm.tag.FOCUSWEATHER=A prayer passes from her lips
+tm.text.FOCUSWEATHER.1=Using the basic principals of creation, it wasn't hard to create a focus to modify the current weather in the world.<BR>The weather focus will stop a storm if one exists, or start one if no storm is present.<BR>The only problem is the rather long cooldown of 30 seconds.<BR>This focus will not accept upgrades from the Focal Manipulator.
+
 
 #SKYSALT
 tm.name.SKYSALT=Salis Tempestas

@@ -275,6 +275,46 @@ public class RecipeRegistry {
                         new ItemStack(ItemRegistry.ItemMaterial), new ItemStack(ItemRegistry.ItemMaterial, 1, 1),
                         new ItemStack(ConfigItems.itemResource, 1, 16) }));
 
+        ResearchRegistry.recipes.put(
+                "ItemFocusTime",
+                ThaumcraftApi.addInfusionCraftingRecipe("FOCUSTIME",
+                new ItemStack(ItemRegistry.ItemFocusTime),
+                        7,
+                new AspectList()
+                        .add(Aspect.AURA, 30)
+                        .add(Aspect.DARKNESS, 45)
+                        .add(Aspect.LIGHT, 45)
+                        .add(Aspect.EARTH, 22),
+                new ItemStack(ItemRegistry.ItemMaterial, 1, 11),
+                new ItemStack[]{
+                        new ItemStack(ItemRegistry.ItemMaterial, 1, 5),
+                        new ItemStack(ConfigBlocks.blockCustomPlant, 1, 1),
+                        new ItemStack(ConfigItems.itemResource, 1, 14),
+                        new ItemStack(ConfigItems.itemResource, 1, 15),
+                        new ItemStack(ConfigBlocks.blockMetalDevice, 1, 8),
+                        new ItemStack(ConfigItems.itemWispEssence, 1, 32767) }
+                )
+        );
+
+        ResearchRegistry.recipes.put(
+                "ItemFocusMeteorology",
+                ThaumcraftApi.addInfusionCraftingRecipe("FOCUSWEATHER", new ItemStack(ItemRegistry.ItemFocusMeteorology),
+                        7,
+                        new AspectList()
+                                .add(Aspect.AURA, 30)
+                                .add(Aspect.WEATHER, 45)
+                                .add(Aspect.WATER, 45)
+                                .add(Aspect.COLD, 22),
+                        new ItemStack(ItemRegistry.ItemMaterial, 1, 11),
+                        new ItemStack[]{
+                                new ItemStack(ItemRegistry.ItemMaterial, 1, 5),
+                                new ItemStack(ConfigItems.itemFocusFrost),
+                                new ItemStack(Items.snowball),
+                                new ItemStack(ConfigItems.itemShard, 1, 2),
+                                new ItemStack(ConfigItems.itemFocusShock),
+                                new ItemStack(Items.water_bucket) }
+                ));
+
         // Salis Tempestas
         ResearchRegistry.recipes.put("ItemSalis:0",
                 ThaumcraftApi.addInfusionCraftingRecipe("SKYSALT", new ItemStack(ItemRegistry.ItemSalis, 3, 0), 7,
