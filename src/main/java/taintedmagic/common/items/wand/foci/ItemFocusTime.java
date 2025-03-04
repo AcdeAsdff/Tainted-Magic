@@ -127,7 +127,7 @@ public class ItemFocusTime extends ItemFocusBasic
         {
 
 
-            if (hasLOTR() && w.provider.dimensionId == LOTRDimension.MIDDLE_EARTH.dimensionID && w.isRemote){
+            if (hasLOTR() && w.provider.dimensionId == LOTRDimension.MIDDLE_EARTH.dimensionID && !w.isRemote){
                 long l = LOTRTime.worldTime + (LOTRTime.DAY_LENGTH/2);
                 LOTRTime.worldTime = l - l % (LOTRTime.DAY_LENGTH/2);
             } else {

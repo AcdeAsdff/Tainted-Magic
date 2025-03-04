@@ -124,10 +124,12 @@ public class ItemFocusMeteorology extends ItemFocusBasic
 			p.playSound("thaumcraft:wand", 0.3F, 1.0F + w.rand.nextFloat() * 0.5F);
 
 			if (w.isRemote) {
+				spawnParticles(w, p);
+			}else {
+
 				if (hasLOTR() && w.provider.dimensionId == LOTRDimension.MIDDLE_EARTH.dimensionID){
 					switchWorldRaining(MinecraftServer.getServer().worldServers[0]);
 				}
-				spawnParticles(w, p);
 			}
 
 
